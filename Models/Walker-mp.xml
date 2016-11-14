@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+
+<nasal>
+  <load>
+	  
+   ##############################################################################
+   # The on-load Nasal is not executed when this file is loaded as the user
+   # aircraft.
+   ##############################################################################
+   var rplayer = cmdarg();
+   
+   #print("############remote walker loading...##############");
+    
+   #right hand pose  
+   rplayer.getNode("sim/model/walker[1]/limb[5]/hand-pose", 1).alias(rplayer.getNode("surface-positions/speedbrake-pos-norm"));
+   
+   #left hand pose 
+   rplayer.getNode("sim/model/walker[1]/limb[8]/hand-pose", 1).alias(rplayer.getNode("surface-positions/flap-pos-norm"));
+      
+   #hip, body
+   rplayer.getNode("sim/model/walker[1]/limb[0]/y-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
+   rplayer.getNode("sim/model/walker[1]/limb[0]/z-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[1]"));   
+ 
+   #chest
+   rplayer.getNode("sim/model/walker[1]/limb[1]/y-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[2]"));
+   rplayer.getNode("sim/model/walker[1]/limb[1]/z-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[3]"));
+   
+   rplayer.getNode("sim/model/walker[1]/limb[2]/y-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[4]"));
+   rplayer.getNode("sim/model/walker[1]/limb[2]/z-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[5]"));
+   
+   #right arm
+   rplayer.getNode("sim/model/walker[1]/limb[3]/x-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[7]"));
+   rplayer.getNode("sim/model/walker[1]/limb[3]/y-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[8]"));
+   rplayer.getNode("sim/model/walker[1]/limb[3]/z-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[9]"));
+   #right arm2  
+   rplayer.getNode("sim/model/walker[1]/limb[4]/z-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[10]"));  
+       
+   #right hand
+   rplayer.getNode("sim/model/walker[1]/limb[5]/x-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[11]"));
+   rplayer.getNode("sim/model/walker[1]/limb[5]/y-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[12]"));
+  
+   #left arm
+   rplayer.getNode("sim/model/walker[1]/limb[6]/x-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[13]"));
+   rplayer.getNode("sim/model/walker[1]/limb[6]/y-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[14]"));
+   rplayer.getNode("sim/model/walker[1]/limb[6]/z-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[15]"));
+   #left arm2
+   rplayer.getNode("sim/model/walker[1]/limb[7]/z-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[16]"));
+   #left hand
+   rplayer.getNode("sim/model/walker[1]/limb[8]/x-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[17]"));
+   rplayer.getNode("sim/model/walker[1]/limb[8]/y-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[18]"));
+ 
+   #right leg1
+   rplayer.getNode("sim/model/walker[1]/limb[9]/x-deg", 1).alias(rplayer.getNode("sim/multiplay/generic/float[19]"));
+ 
+
+   rplayer.getNode("sim/model/walker[1]/limb[9]/y-deg", 1).alias(rplayer.getNode("surface-positions/wing-pos-norm"));
+   rplayer.getNode("sim/model/walker[1]/limb[9]/z-deg", 1).alias(rplayer.getNode("surface-positions/wing-fold-pos-norm"));    
+   #right leg2
+   rplayer.getNode("sim/model/walker[1]/limb[10]/y-deg", 1).alias(rplayer.getNode("gear/gear[1]/compression-norm"));   
+    
+   #right foot
+   rplayer.getNode("sim/model/walker[1]/limb[11]/y-deg", 1).alias(rplayer.getNode("gear/gear[1]/position-norm"));   
+     
+    
+   #left leg1
+   rplayer.getNode("sim/model/walker[1]/limb[12]/x-deg", 1).alias(rplayer.getNode("gear/gear[2]/compression-norm"));
+   rplayer.getNode("sim/model/walker[1]/limb[12]/y-deg", 1).alias(rplayer.getNode("gear/gear[2]/position-norm"));
+   rplayer.getNode("sim/model/walker[1]/limb[12]/z-deg", 1).alias(rplayer.getNode("gear/gear[3]/compression-norm"));   
+    
+   #left leg2
+   rplayer.getNode("sim/model/walker[1]/limb[13]/y-deg", 1).alias(rplayer.getNode("gear/gear[3]/position-norm"));
+    
+   #left foot
+   rplayer.getNode("sim/model/walker[1]/limb[14]/y-deg", 1).alias(rplayer.getNode("gear/gear[4]/compression-norm")); 
+     
+   #whole body up/down    
+   rplayer.getNode("sim/model/walker[1]/limb/z-m", 1).alias(rplayer.getNode("gear/gear[4]/position-norm"));   
+ 
+   rplayer.getNode("sim/walker/parachute-opened-sec", 1).alias(rplayer.getNode("gear/launchbar/position-norm"));   
+   rplayer.getNode("sim/walker/parachute-opened-altitude-ft", 1).alias(rplayer.getNode("gear/launchbar/holdback-position-norm"));   
+ 
+   rplayer.getNode("sim/walker/character", 1).alias(rplayer.getNode("sim/multiplay/generic/int[0]"));
+   rplayer.getNode("sim/walker/outfit", 1).alias(rplayer.getNode(  "sim/multiplay/generic/int[1]"));
+   rplayer.getNode("sim/walker/gender", 1).alias(rplayer.getNode(  "sim/multiplay/generic/int[2]"));
+   rplayer.getNode("sim/walker/outside", 1).alias(rplayer.getNode("sim/multiplay/generic/int[3]"));
+   rplayer.getNode("sim/walker/airborne", 1).alias(rplayer.getNode("sim/multiplay/generic/int[4]"));
+   rplayer.getNode("sim/walker/parachute-style", 1).alias(rplayer.getNode("sim/multiplay/generic/int[5]"));
+   
+   rplayer.getNode("sim/multiplay/callsign", 1).alias(rplayer.getNode("sim/multiplay/generic/string[1]"));
+ 
+   ##############################################################################
+  </load>
+</nasal>    
+
+
+
+
+
+
+<!-- label with players callsign -->
+<text>
+	  <name>Callsign</name>
+	  <offsets> 
+			<z-m>1.2</z-m>
+			<x-m>0.5</x-m>
+		</offsets>
+    <alignment>center-bottom</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">sim/multiplay/generic/string[1]</property>
+    <format type="string">%s</format>
+    <font>arial_black.txf</font>
+    <character-size>0.1</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <draw-alignment type="bool">false</draw-alignment>   
+</text>
+<animation>
+        <type>material</type>
+        <object-name>Callsign</object-name>
+        <emission>
+                <red>1.0</red>
+                <green>0.8</green>
+                <blue>0.0</blue>
+        </emission>
+</animation>
+
+<model>
+	<name>Walker-mp</name>
+	
+	<!-- the same walker.xml that the Y12B single player version uses -->
+	<path>Aircraft/Y12B/Human/Models/walker.xml</path>
+</model>
+
+
+<!-- hide walker when inside cabin-->
+<animation>
+        <type>select</type>
+		<object-name>Walker-mp</object-name>
+	<!--	<object-name>Callsign</object-name>  -->
+		<condition>
+			<and>
+				<!-- outside -->
+				 <property>sim/multiplay/generic/int[3]</property>
+				 <!-- airborne -->
+				 <property>sim/multiplay/generic/int[4]</property>
+			</and>
+		</condition>
+</animation>
+
+<model>
+	<name>Soldier-standing</name>
+	<path>Aircraft/Y12B/Human/Models/soldierVR-standing.xml</path>
+</model>
+<animation>
+        <type>select</type>
+		<object-name>Soldier-standing</object-name>
+		<condition>
+			<and>
+				<!-- outside -->
+				 <property>sim/multiplay/generic/int[3]</property>
+				 <not>
+					 <!-- airborne -->
+				    <property>sim/multiplay/generic/int[4]</property>
+				 </not>
+			</and>
+		</condition>
+</animation>
+
+
+
+<!-- for debugging 
+<model>
+	<path>Aircraft/ufo/Models/cursor.ac</path>
+</model>
+-->
+
+
+
+</PropertyList>

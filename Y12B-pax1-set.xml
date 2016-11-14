@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<!-- $Id: c172p-copilot-set.xml,v 1.44 2009-05-24 16:51:31 anders Exp $ -->
+<!--
+  Multiplayer copilot view and control.
+
+  Copyright (C) 2007 - 2009  Anders Gidenstam  (anders(at)gidenstam.org)
+  This file is licensed under the GPL license version 2 or later.
+-->
+<!--
+  Usage: fgfs - -prop:/sim/remote/pilot-callsign="callsign" - -aircraft=Y12B-pax1
+-->
+<PropertyList include="Aircraft/Y12B/Human/Include/walker-include.xml">
+
+ <sim>
+
+  <description>Y12B passenger</description>
+  <author>Martin Herweg</author>
+  <status>experimental</status>
+  <aircraft-version>0.1</aircraft-version>
+
+  <flight-model>null</flight-model>
+
+  <model>
+   <path>Aircraft/Y12B/Models/Y12B-pax1.xml</path>
+   <variant type="int">0</variant>
+   
+   
+     <npc n="1">
+     <pose include = "Include/walker_sit.xml"></pose>
+            <gender>0</gender>
+            <character>0</character>
+           <outfit>0</outfit>
+			<headgear>0</headgear>
+			<eyewear>0</eyewear>
+			<mask>0</mask>
+			<hair>1</hair>
+     </npc>
+   
+   
+<!-- outside at cabin door -->
+	<map>
+	 <default_exit>
+	  <x-offset-m type ="float">-1.5</x-offset-m>
+	  <y-offset-m type ="float">1.5</y-offset-m>
+	 </default_exit>
+	</map>
+	
+  </model>
+
+  <remote>
+   <pilot-callsign type="string">LittleC</pilot-callsign>
+  </remote>
+  
+   <view n="0">
+   <name>Passenger View</name>
+   <type>lookfrom</type>
+   <config>
+    <internal type="bool">true</internal>
+    <default-field-of-view-deg type="double"> 65 </default-field-of-view-deg>
+
+    <from-model type="bool">false</from-model>
+    <from-model-idx type="int">0</from-model-idx>
+    <eye-lat-deg-path>/position/latitude-deg</eye-lat-deg-path>
+    <eye-lon-deg-path>/position/longitude-deg</eye-lon-deg-path>
+    <eye-alt-ft-path>/position/altitude-ft</eye-alt-ft-path>
+    <eye-heading-deg-path>/orientation/heading-deg</eye-heading-deg-path>
+    <eye-pitch-deg-path>/orientation/pitch-deg</eye-pitch-deg-path>
+    <eye-roll-deg-path>/orientation/roll-deg</eye-roll-deg-path>
+
+    <at-model type="bool">false</at-model>
+    <at-model-idx type="int">0</at-model-idx>
+ <!-- x/y/z == right/up/back -->
+    <x-offset-m type="double">-0.61</x-offset-m>
+    <y-offset-m type="double">2.50</y-offset-m>
+    <z-offset-m type="double">-0.8</z-offset-m>
+    <heading-offset-deg type="double">0</heading-offset-deg>
+    <pitch-offset-deg type="double">-12</pitch-offset-deg>
+    <roll-offset-deg type="double">0</roll-offset-deg>
+   </config>
+  </view>
+  
+   <view n="103">
+   <name>walk in cabin view</name>
+   <internal>true</internal>
+   <config>
+    <!-- x/y/z == right/up/back -->
+    <from-model type="bool">true</from-model>
+    <from-model-idx type="int">0</from-model-idx>
+    <x-offset-m type="double"> 0.0 </x-offset-m>
+    <y-offset-m type="double"> 2.60 </y-offset-m>
+    <z-offset-m type="double"> -6.00 </z-offset-m>
+    <heading-offset-deg type="double">179.0</heading-offset-deg>
+    <pitch-offset-deg type="double"> 0.0 </pitch-offset-deg>
+    <default-field-of-view-deg type="double"> 65 </default-field-of-view-deg>
+   </config>
+  </view>
+  
+   <view n="100">
+		<name>Walk View</name>
+		<type>lookfrom</type>
+		<enabled type="bool">false</enabled>
+		<config>
+			<default-field-of-view-deg type="double">90.0</default-field-of-view-deg>
+			<eye-alt-ft-path>sim/walker/altitude-ft</eye-alt-ft-path>
+			<eye-heading-deg-path>sim/walker/heading-deg</eye-heading-deg-path>
+			<eye-lat-deg-path>sim/walker/latitude-deg</eye-lat-deg-path>
+			<eye-lon-deg-path>sim/walker/longitude-deg</eye-lon-deg-path>
+			<eye-pitch-deg-path>sim/walker/pitch-deg</eye-pitch-deg-path>
+			<eye-roll-deg-path>sim/walker/roll-deg</eye-roll-deg-path>
+			<ground-level-nearplane-m type="double">0.5</ground-level-nearplane-m>
+			<x-offset-m type="double">0.0</x-offset-m>
+			<y-offset-m type="double">2.1</y-offset-m>
+			<z-offset-m type="double">9.4</z-offset-m>
+			<limits>
+				<enabled type="bool">false</enabled>
+			</limits>
+		</config>
+	</view>
+
+	<view n="101">
+		<name>Walker Orbit View</name>
+		<type>lookat</type>
+		<enabled type="bool">false</enabled>
+		<config>
+			<from-model type="bool">false</from-model>
+			<from-model-idx type="int">0</from-model-idx>
+			<at-model type="bool">false</at-model>
+			<at-model-idx type="int">100</at-model-idx>
+			<eye-alt-ft-path>sim/walker/altitude-ft</eye-alt-ft-path>
+			<eye-heading-deg-path>sim/walker/heading-deg</eye-heading-deg-path>
+			<eye-lat-deg-path>sim/walker/latitude-deg</eye-lat-deg-path>
+			<eye-lon-deg-path>sim/walker/longitude-deg</eye-lon-deg-path>
+			<eye-pitch-deg-path>sim/walker/pitch-deg</eye-pitch-deg-path>
+			<eye-roll-deg-path>sim/walker/roll-deg</eye-roll-deg-path>
+			<target-alt-ft-path>sim/walker/altitude-ft</target-alt-ft-path>
+			<target-heading-deg-path>sim/walker/heading-deg</target-heading-deg-path>
+			<target-lat-deg-path>sim/walker/latitude-deg</target-lat-deg-path>
+			<target-lon-deg-path>sim/walker/longitude-deg</target-lon-deg-path>
+			<target-pitch-deg-path>sim/walker/pitch-deg</target-pitch-deg-path>
+			<target-roll-deg-path>sim/walker/roll-deg</target-roll-deg-path>
+			<target-x-offset-m type="double">0</target-x-offset-m>
+			<target-y-offset-m type="double">1.5</target-y-offset-m>
+			<target-z-offset-m type="double">0</target-z-offset-m>
+			<ground-level-nearplane-m type="double">0.2f</ground-level-nearplane-m>
+			<default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+			<x-offset-m type="double">0</x-offset-m>
+			<y-offset-m type="double">1</y-offset-m>
+			<z-offset-m type="double">5</z-offset-m>
+			<heading-offset-deg>0</heading-offset-deg>
+			<pitch-offset-deg>0</pitch-offset-deg>
+			<roll-offset-deg>0</roll-offset-deg>
+			<limits>
+				<enabled type="bool">false</enabled>
+			</limits>
+		</config>
+	</view>
+  
+
+
+
+<menubar>
+   <default>
+    <menu n="100">
+     <label>Y12B passenger 1</label>
+     <item>
+      <label>Select MP-pilot</label>
+      <binding>
+       <command>nasal</command>
+       <script>
+        dual_control_tools.
+          copilot_dialog.show(aircraft_dual_control.pilot_type);
+       </script>
+      </binding>
+     </item>
+    </menu>
+   </default>
+  </menubar>
+
+      
+<multiplay>
+	 <surface-positions>
+		<elevator-pos-norm>100.123</elevator-pos-norm>
+	</surface-positions>
+
+	<generic>
+   <!-- MP  properties -->
+  
+   <!--alt-ft -->
+   <float n="4" alias="/sim/walker/altitude-ft"/>
+   <!-- lat -->
+   <float n="5" alias="/sim/walker/latitude-deg"/>
+   <!-- lon -->
+   <float n="6" alias="/sim/walker/longitude-deg"/>
+   
+   </generic>
+      
+</multiplay>
+           
+</sim>
+ 
+<input>
+	<keyboard>
+		
+		<key n="119">
+		  <name>w</name>
+		  <desc>Walk view: Walk forward.</desc>
+		  <binding>
+		   <command>nasal</command>
+		   <script>
+			 if (!walkview.forward(1.0)) {
+			 }
+		   </script>
+		  </binding>
+		  <mod-up>
+		   <binding>
+			<command>nasal</command>
+			<script>
+			  walkview.forward(0);
+			</script>
+		   </binding>
+		  </mod-up>
+		</key>
+		
+			<key n="111">
+			<name>o</name>
+			<desc>Toggle walker outside/inside</desc>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/walker/key-triggers/outside-toggle</property>
+			</binding>
+		</key>
+		
+		<key n="106"> 
+			<name>j</name>
+			<desc>open parachute</desc>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>walk.open_chute()</script>
+			</binding>
+		</key>
+	
+	</keyboard>
+</input>
+
+<nasal>
+  <walkview>
+   <file>Aircraft/Generic/WalkView/walkview.nas</file>
+   <script>
+    # The keel walk-way is a long narrow path running in the fore-aft direction.
+    # Additionally there is a path to the side engine cars.
+    var cabinConstraint =
+         walkview.LinePlane.new([-5.55, 0.0, 1.0],
+                                [-0.5, 0.0, 1.0],1.7);
+
+    # Create the walker for the named view and the given movement restrictions.
+    var rigger_walker = walkview.Walker.new("walk in cabin view",
+                                            cabinConstraint);
+   </script>
+  </walkview>
+	<Y12B>
+		<file>Aircraft/Y12B/Nasal/doors.nas</file>
+		<file>Aircraft/Y12B/Nasal/Y12B.nas</file>
+		
+	</Y12B>
+	
+  <dual_control_tools>
+   <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+  </dual_control_tools>
+  <aircraft_dual_control>
+   <file>Aircraft/Y12B/Nasal/Y12B-dual-control.nas</file>
+  </aircraft_dual_control>
+  <dual_control>
+   <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
+  </dual_control>
+	
+	
+</nasal>
+
+</PropertyList>
+
+ 
+ 
+ 

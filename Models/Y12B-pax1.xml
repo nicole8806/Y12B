@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+
+<!-- ******************************************************************* -->
+<!-- Keep it empty.               or maybe add a sitting poerson ?       -->
+<!-- ******************************************************************* -->
+ <path>Models/Geometry/null.ac</path>
+ 
+ <!--== person sitting in cabin ==-->	
+<model>
+		<name>npc1</name>
+		 <path>Aircraft/Y12B/Human/Models/npc1.xml</path>
+		<nopreview/>
+		<offsets> 
+			<heading-deg>270</heading-deg>
+			<x-m>-3.2</x-m>
+			<y-m>-0.65</y-m>
+			<!--== the pose from the bluebird has a Z offset ==-->
+			<z-m>0.90</z-m>
+		</offsets>
+</model>
+
+
+<nasal>
+  <load>
+   ##############################################################################
+   # The on-load Nasal is not executed when this file is loaded as the user
+   # aircraft.
+   ##############################################################################
+   var rplayer = cmdarg();
+   # Set up property aliases for animations.
+   rplayer.getNode("sim/walker/altitude-ft", 1).
+     alias(rplayer.getNode("sim/multiplay/generic/float[4]"));
+     
+   rplayer.getNode("sim/walker/latitude-deg", 1).
+     alias(rplayer.getNode("sim/multiplay/generic/float[5]"));
+     
+   rplayer.getNode("sim/walker/longitude-deg", 1).
+     alias(rplayer.getNode("sim/multiplay/generic/float[6]"));
+     
+  # rplayer.getNode("", 1).
+  #   alias(rplayer.getNode("sim/multiplay/generic/float[3]"));
+     
+     
+     
+       
+   ##############################################################################
+  
+  </load>
+</nasal>
+
+
+
+
+</PropertyList>

@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+ <model>
+	<name>male</name>
+  <path>Aircraft/Y12B/Human/Models/walker-inc.xml</path>
+ </model>
+
+
+
+ <animation>
+  <type>select</type>
+  <object-name>male</object-name>
+  <condition>
+   <equals>
+    <property>sim/walker/gender</property>
+    <value>0</value>
+   </equals>
+  </condition>
+ </animation>
+
+ <model>
+	<name>female</name>
+  <path>Aircraft/Y12B/Human/Models/walker-inc.xml</path>
+
+ <overlay>
+	<models>
+		<char0-path>Aircraft/Y12B/Human/Models/amelia.xml</char0-path>
+		<char1-path>Aircraft/Y12B/Human/Models/amelia.xml</char1-path>
+		<char2-path>Aircraft/Y12B/Human/Models/amelia.xml</char2-path>
+		<outfit0>Aircraft/Y12B/Human/Models/outfit/default-f.xml</outfit0>
+		<outfit1>Aircraft/Y12B/Human/Models/outfit/flightsuit-f.xml</outfit1>
+		<outfit2>Aircraft/Y12B/Human/Models/outfit/airliner-f.xml</outfit2>
+		<outfit3>Aircraft/Y12B/Human/Models/outfit/airliner-f.xml</outfit3>
+	</models>
+
+	<limbs>
+		<chest-x>-0.0112992</chest-x>
+		<chest-y>0.0</chest-y>
+		<chest-z>0.1676192</chest-z>
+		<head-x>0.0250915</head-x>
+		<head-y>0.0</head-y>
+		<head-z>0.577579</head-z>
+		<shoulder-x>0.0322284</shoulder-x>
+		<shoulder-y-l>-0.152689</shoulder-y-l>
+		<shoulder-y-r>0.152689</shoulder-y-r>
+		<shoulder-z>0.496473</shoulder-z>
+		<elbow-x>0.0544844</elbow-x>
+		<elbow-y-l>-0.439449</elbow-y-l>
+		<elbow-y-r>0.439449</elbow-y-r>
+		<elbow-z>0.492835</elbow-z>
+		<hand-x>0.0327848</hand-x>
+		<hand-y-l>-0.685121</hand-y-l>
+		<hand-y-r>0.685121</hand-y-r>
+		<hand-z>0.487592</hand-z>
+		<leg-x>-0.0364763</leg-x>
+		<leg-y-l>-0.0527938</leg-y-l>
+		<leg-y-r>0.0527938</leg-y-r>
+		<leg-z>-0.0216712</leg-z>
+		<knee-x>0.00578977</knee-x>
+		<knee-y-r>0.0886923</knee-y-r>
+		<knee-y-l>-0.0886923</knee-y-l>
+		<knee-z>-0.377503</knee-z>
+		<foot-x>0.0806138</foot-x>
+		<foot-y-l>-0.110317</foot-y-l>
+		<foot-y-r>0.110317</foot-y-r>
+		<foot-z>-0.872164</foot-z>
+	</limbs>
+
+
+ </overlay>
+ </model>
+
+
+ <animation>
+  <type>select</type>
+  <object-name>female</object-name>
+  <condition>
+   <equals>
+    <property>sim/walker/gender</property>
+    <value>1</value>
+   </equals>
+  </condition>
+ </animation>
+
+
+
+<model>
+	<name>round-white-chute</name>
+    <path>Aircraft/Y12B/Human/Models/round-white-chute/round-white-chute.xml</path>
+	<offsets>
+		<z-m>2.3</z-m>
+		<y-m>0.4</y-m>
+		<heading-deg>-90</heading-deg>
+	</offsets>
+</model>
+<animation>
+  <type>select</type>
+  <object-name>round-white-chute</object-name>
+  <condition>
+	  <and>
+				<greater-than>
+					<property>sim/walker/parachute-opened-sec</property>
+					<value>0.0</value>
+				</greater-than>
+				<greater-than>
+					<property>sim/walker/parachute-opened-altitude-ft</property>
+					<value>0.0</value>
+				</greater-than>
+			<equals>
+				<property>sim/walker/parachute-style</property>
+				<value>0</value>
+			</equals>
+	</and>
+  </condition>
+</animation>
+
+
+<model>
+	<name>round-color-chute</name>
+    <path>Aircraft/Y12B/Human/Models/round-color-chute/round_chute.xml</path>
+	<offsets>
+		<z-m>2.3</z-m>
+		<y-m>0.4</y-m>
+		<heading-deg>-90</heading-deg>
+	</offsets>
+</model>
+<animation>
+  <type>select</type>
+  <object-name>round-color-chute</object-name>
+  <condition>
+	   <and>
+				<greater-than>
+					<property>sim/walker/parachute-opened-sec</property>
+					<value>0.0</value>
+				</greater-than>
+				<greater-than>
+					<property>sim/walker/parachute-opened-altitude-ft</property>
+					<value>0.0</value>
+				</greater-than>
+			<equals>
+				<property>sim/walker/parachute-style</property>
+				<value>1</value>
+			</equals>
+	</and>
+  </condition>
+</animation>
+
+
+<model>
+	<name>square-chute</name>
+    <path>Aircraft/Y12B/Human/Models/square-chute/square-chute.xml</path>
+	<offsets>
+		<z-m>-0.1</z-m>
+		<heading-deg>-90</heading-deg>
+	</offsets>
+</model>
+<animation>
+  <type>select</type>
+  <object-name>square-chute</object-name>
+  <condition>
+	   <and>
+				<greater-than>
+					<property>sim/walker/parachute-opened-sec</property>
+					<value>0.0</value>
+				</greater-than>
+				<greater-than>
+					<property>sim/walker/parachute-opened-altitude-ft</property>
+					<value>0.0</value>
+				</greater-than>
+			<equals>
+				<property>sim/walker/parachute-style</property>
+				<value>2</value>
+			</equals>
+	</and>
+  </condition>
+</animation>
+
+
+
+
+
+
+
+</PropertyList>

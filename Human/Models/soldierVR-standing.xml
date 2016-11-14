@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<model>
+		<path>soldierVR-standing.ac</path>
+		<offsets> 
+			<!--<heading-deg>-90</heading-deg> -->
+		  	<z-m>1.0</z-m>    
+			<x-m>-0.06</x-m>  
+			
+		</offsets>
+	</model>
+	
+	<model>
+		<!-- the head -->
+		<path>soldierVR.xml</path>
+		<offsets> 
+			<!--<heading-deg>-90</heading-deg> -->
+		  	<z-m>1.0</z-m>    
+			<x-m>-0.06</x-m>  
+			
+		</offsets>
+	</model>
+		
+	
+	
+	
+</PropertyList>
